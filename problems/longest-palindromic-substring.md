@@ -4,7 +4,7 @@
 
 ```python
     def expand(s, l,r):
-        while l >= 0 and l < r:
+        while l >= 0 and r < len(s):
             if s[l] == s[r]:
                 l -= 1
                 r += 1
@@ -15,8 +15,8 @@
     def find_palindrome(s):
         res = "
         for i in range(len(s)):
-            odd = expand(s, i,i)
-            even = expand(s, i,i+1)
-            res = max(res, odd, even, key=len)
+            odd_length = expand(s, i,i)
+            even_length = expand(s, i,i+1)
+            res = max(res, odd_length, even_length, key=len)
         return res
 ```
